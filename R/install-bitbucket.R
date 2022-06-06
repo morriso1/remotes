@@ -156,7 +156,7 @@ format.bitbucket_remote <- function(x, ...) {
 bitbucket_commit <- function(username, repo, ref = "HEAD",
   host = "api.bitbucket.org/2.0", auth = NULL) {
 
-  url <- build_url(host, "repositories", username, repo, "commit", ref)
+  url <- build_url(host, username, repo, "commit", ref)
 
   tmp <- tempfile()
   download(tmp, url, basic_auth = auth)
@@ -166,7 +166,7 @@ bitbucket_commit <- function(username, repo, ref = "HEAD",
 
 bitbucket_DESCRIPTION <- function(username, repo, subdir = NULL, ref = "HEAD", host = "https://api.bitbucket.org/2.0", auth = NULL,...) {
 
-  url <- build_url(host, "repositories", username, repo, "src", ref, subdir, "DESCRIPTION")
+  url <- build_url(host, username, repo, "src", ref, subdir, "DESCRIPTION")
 
   tmp <- tempfile()
   download(tmp, url, basic_auth = auth)
@@ -189,7 +189,7 @@ basic_auth <- function(x) {
 bitbucket_download_url <- function(username, repo, ref = "HEAD",
   host = "api.bitbucket.org/2.0", auth = NULL) {
 
-  url <- build_url(host, "repositories", username, repo)
+  url <- build_url(host, username, repo)
 
   tmp <- tempfile()
   download(tmp, url, basic_auth = auth)
